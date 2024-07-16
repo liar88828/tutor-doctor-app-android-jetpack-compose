@@ -4,16 +4,17 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,28 +27,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.doctorapp.doc_app.R
-import com.doctorapp.doc_app.ui.theme.BluePrimary
-import com.doctorapp.doc_app.ui.theme.Orange
 import com.doctorapp.doc_app.ui.theme.PurpleGrey
 import com.doctorapp.doc_app.ui.theme.TextColorTitle
 import com.doctorapp.doc_app.ui.theme.poppinsFontFamily
 
 @Composable
-fun NearDoctorCard(modifier: Modifier = Modifier) {
+fun ScheduleDoctorCard(modifier: Modifier = Modifier) {
 	Surface(
 		modifier = modifier.fillMaxWidth(),
-		shape = RoundedCornerShape(12.dp),
 		color = Color.White,
-		tonalElevation = 0.5.dp,
-		shadowElevation = 0.2.dp
+		shape = RoundedCornerShape(12.dp),
+		shadowElevation = 0.2.dp,
+		tonalElevation = 0.5.dp
 	) {
 		Column(
-			modifier = modifier.padding(
-				vertical = 16.dp,
-				horizontal = 20.dp
-			)
+			modifier = modifier.padding(vertical = 16.dp, horizontal = 20.dp)
 		) {
 			Row {
 				Image(
@@ -103,53 +98,29 @@ fun NearDoctorCard(modifier: Modifier = Modifier) {
 					.alpha(0.1f),
 				color = Color.Gray
 			)
+			ScheduleTimeContent(contentColor = PurpleGrey)
 
-			Row(
-				modifier = modifier.fillMaxWidth(),
-				horizontalArrangement = Arrangement.SpaceBetween
-			) {
-				ButtonItem(icon = R.drawable.ic_review, title = "4.5 (Review)", color = Orange)
-				ButtonItem(icon = R.drawable.ic_clock, title = "Open at 17.00", color = BluePrimary)
-//				ButtonItem(icon = R.drawable.ic_review, title = "4.5 (Review)", color = Orange)
+			Button(
+				modifier = modifier
+					.fillMaxWidth()
+					.padding(top = 20.dp),
+				colors = ButtonDefaults.buttonColors(Color(0xFF2B93E2).copy(0.1f)),
+				onClick = {}) {
+				Text(
+					text = "Detail",
+					fontFamily = poppinsFontFamily,
+					fontWeight = FontWeight.Medium,
+					color = Color(0xFF2B93E2)
+				)
 			}
 		}
 	}
-}
 
-@Composable
-fun ButtonItem(
-	modifier: Modifier = Modifier,
-	icon: Int,
-	title: String,
-	color: Color
-) {
-	Row(
-		modifier = modifier,
-		verticalAlignment = Alignment.CenterVertically
-	) {
-		Image(
-			modifier = modifier.size(16.dp),
-			painter = painterResource(id = icon),
-			contentDescription = "Location Icon",
-			colorFilter = ColorFilter.tint(color)
-		)
-
-		Spacer(modifier = modifier.width(6.dp))
-
-
-		Text(
-			text = title,
-			fontFamily = poppinsFontFamily,
-			fontWeight = FontWeight.W400,
-			color = color,
-			fontSize = 12.sp
-		)
-	}
 
 }
 
-@Preview
+@Preview//(showBackground = true)
 @Composable
-private fun NearDoctorPrev() {
-	NearDoctorCard()
+private fun ScheduleDoctorCardPrev() {
+	ScheduleDoctorCard()
 }

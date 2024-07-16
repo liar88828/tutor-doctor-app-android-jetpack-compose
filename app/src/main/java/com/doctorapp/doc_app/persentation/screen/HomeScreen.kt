@@ -11,13 +11,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.magnifier
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,7 +44,8 @@ import com.doctorapp.doc_app.ui.theme.poppinsFontFamily
 fun HomeScreen(modifier: Modifier = Modifier) {
 	Surface(
 		modifier = modifier.padding(
-			top = 42.dp, start = 16.dp, end = 16.dp
+			top = 20.dp,
+			start = 16.dp, end = 16.dp
 		)
 	) {
 		Column {
